@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-
+"""
+This script visualizes the binary class by taking a mask file as input.
+The mask file should only have 2 classes with RGB pixels values of (0, 0, 0) for the background
+and (1, 1, 1) for the object of interest. Running this script returns an image with a visualized
+red mask against a black background.
+This script should be placed inside the folder that contains the masks.
+"""
 from PIL import Image
 from pathlib import Path
 import os
@@ -8,7 +14,7 @@ import os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # Load mask
-mask = Image.open("2024_07_28_2829_plant8.png").convert("L")
+mask = Image.open("image_name.png").convert("L")
 
 # Convert mask to RGB
 mask_colored = mask.convert("RGB")
