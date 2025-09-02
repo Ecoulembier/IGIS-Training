@@ -1,0 +1,15 @@
+#!/bin/bash
+#PBS -N DeepLabV3_Training
+#PBS -l nodes=1:ppn=1:gpus=1
+#PBS -l mem=16g
+#PBS -l walltime=48:00:00
+#PBS -m abe
+
+module purge
+module swap cluster/accelgor
+module load PyTorch/2.1.2-foss-2023a-CUDA-12.1.1
+module load torchvision/0.16.0-foss-2023a-CUDA-12.1.1
+module load pyannote.audio/3.3.2-foss-2023a-CUDA-12.1.1
+
+
+python3 /kyukon/data/gent/vo/000/gvo00058/vsc47066/IGIS_training/Scripts/trainCosine.py IGIS_plants/
